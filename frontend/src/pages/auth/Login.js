@@ -151,7 +151,7 @@ const Login = () => {
           <Link to="/forgot-password">Forgot password?</Link>
         </Typography>
         <Typography variant="body2">
-          Don't have an account?{' '}
+          Don&apos;t have an account?{' '}
           <Link to="/register">Register</Link>
         </Typography>
       </Box>

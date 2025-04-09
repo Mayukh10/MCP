@@ -85,7 +85,7 @@ const Register = () => {
           Registration Instructions:
         </Typography>
         <Typography variant="body2">
-          For testing, use password123 as your password. Select either 'mcp' or 'pickup_partner' as your role.
+          For testing, use password123 as your password. Select either &apos;mcp&apos; or &apos;pickup_partner&apos; as your role.
         </Typography>
       </Paper>
 

@@ -23,7 +23,8 @@
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "warn",
       "no-unused-vars": "warn",
-      "no-console": "warn"
+      "no-console": "warn",
+      "jsx-quotes": ["error", "prefer-double"]
     },
     "settings": {
       "react": {
