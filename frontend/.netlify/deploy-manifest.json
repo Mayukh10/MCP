@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "title": "MCP Platform Frontend",
+  "deploy": {
+    "site_id": "fancy-jelly-78785d",
+    "dir": "build",
+    "functions": {
+      "directory": "functions"
+    }
+  }
+} 

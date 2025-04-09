@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: mcp-platform-backend
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: PORT
+        value: 10000
+      - key: FRONTEND_URL
+        value: https://fancy-jelly-78785d.netlify.app 
