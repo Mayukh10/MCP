@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { Provider, useSelector, useDispatch } from 'react-redux';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+import PropTypes from 'prop-types';
 import { store } from './store/store';
 import { getUserProfile } from './store/slices/authSlice';
 
@@ -82,6 +83,10 @@ const AppInitializer = ({ children }) => {
   }, [dispatch, token, user]);
   
   return <>{children}</>;
+};
+
+AppInitializer.propTypes = {
+  children: PropTypes.node.isRequired
 };
 
 function App() {

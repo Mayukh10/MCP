@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import {
   Box,
   Grid,
@@ -89,6 +90,18 @@ const StatCard = ({ title, value, icon, color, description = null }) => {
   );
 };
 
+StatCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  icon: PropTypes.node.isRequired,
+  color: PropTypes.string.isRequired,
+  description: PropTypes.string
+};
+
+StatCard.defaultProps = {
+  description: null
+};
+
 const Dashboard = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
@@ -126,7 +139,6 @@ const Dashboard = () => {
   }, [statsError, partnersError, walletError]);
 
   const loadData = () => {
-    console.log('Loading dashboard data...');
     setIsRefreshing(true);
     
     try {
@@ -136,13 +148,16 @@ const Dashboard = () => {
           dispatch(getMCPPartners()),
           dispatch(getMCPWallet())
         ])
-        .catch(err => console.error('Dashboard data loading error:', err))
+        .catch(err => {
+          // Handle error silently
+          setIsRefreshing(false);
+        })
         .finally(() => setIsRefreshing(false));
       } else {
         setIsRefreshing(false);
       }
     } catch (err) {
-      console.error('Dashboard data loading error:', err);
+      // Handle error silently
       setIsRefreshing(false);
     }
   };

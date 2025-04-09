@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import {
   Card,
   CardContent,
@@ -316,6 +317,40 @@ const CollectionCard = ({ collection, userRole, showActions = true }) => {
       </Dialog>
     </Card>
   );
+};
+
+CollectionCard.propTypes = {
+  collection: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    status: PropTypes.string.isRequired,
+    wasteType: PropTypes.string.isRequired,
+    price: PropTypes.number,
+    scheduledDate: PropTypes.string.isRequired,
+    quantity: PropTypes.number.isRequired,
+    unit: PropTypes.string.isRequired,
+    address: PropTypes.shape({
+      street: PropTypes.string.isRequired,
+      city: PropTypes.string.isRequired,
+      state: PropTypes.string.isRequired,
+      pincode: PropTypes.string.isRequired,
+      landmark: PropTypes.string
+    }).isRequired,
+    notes: PropTypes.string,
+    mcp: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      phone: PropTypes.string.isRequired
+    }),
+    pickupPartner: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      phone: PropTypes.string.isRequired
+    })
+  }).isRequired,
+  userRole: PropTypes.string.isRequired,
+  showActions: PropTypes.bool
+};
+
+CollectionCard.defaultProps = {
+  showActions: true
 };
 
 export default CollectionCard; 
