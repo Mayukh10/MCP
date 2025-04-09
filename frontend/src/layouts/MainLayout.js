@@ -31,12 +31,10 @@ import {
 } from '@mui/icons-material';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../store/slices/authSlice';
-import { useTheme } from '@mui/material/styles';
 
 const drawerWidth = 240;
 
 function MainLayout() {
-  const theme = useTheme();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);

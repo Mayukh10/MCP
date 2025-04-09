@@ -36,9 +36,7 @@ const Login = () => {
 
   const handleSubmit = async (values) => {
     try {
-      console.log('Attempting login with:', values.email);
       const result = await dispatch(login(values)).unwrap();
-      console.log('Login successful:', result);
       
       // Navigate based on user role
       if (result.user.role === 'mcp') {
@@ -49,7 +47,6 @@ const Login = () => {
         navigate('/dashboard');
       }
     } catch (err) {
-      console.error('Login error:', err);
       // Error is handled by Redux
     }
   };

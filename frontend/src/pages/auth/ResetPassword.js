@@ -44,7 +44,7 @@ function ResetPassword() {
     } else {
       setToken(tokenParam);
     }
-  }, [location]);
+  }, [location, setStatus]);
 
   const handleSubmit = async (values, { setSubmitting }) => {
     if (!token) {
